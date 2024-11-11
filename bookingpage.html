@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Egypt - Your Next Adventure Awaits</title>
+    <link rel="icon"
+        href="https://cdn3.iconfinder.com/data/icons/human-civilization-vol-2/512/egypt_pharaoh_ancient_egyptian-1024.png">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    /* Basic styling for the booking page */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url('globe.png'); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    header {
+      background: #222;
+      position: fixed;
+      top: 0; 
+      width: 100%;
+      padding: 20.5px 20px;
+      color: #fff;
+      z-index: 1000;
+      opacity: 1; 
+    }
+    .header-container {
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      padding: 0 20px;
+
+    }
+
+    .logo a {
+      text-decoration: none;
+      color: whitesmoke;
+      font-size: 30px;
+      margin-left: 4px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+      justify-content: flex-start;
+    }
+
+    nav ul li {
+      margin-left: 10px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: whitesmoke;
+      font-size: 25px;
+      padding: 5px 10px;
+    }
+
+    .nav-links a:hover{
+    border-bottom: 4px solid #E7EAEE;
+}
+
+        
+    .booking-form {
+      width: 100%;
+      max-width: 400px;
+      margin-top: 100px;
+      padding: 50px;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px); /* Optional blur for background */
+      text-align: center;
+    }
+     
+
+    .booking-form h2 {
+      text-align: center;
+      font-weight: 1000;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    /* Set background color on focus */
+input:focus {
+  background-color: white; /* Or your desired background color */
+  outline: none; /* Optionally, remove outline for a cleaner look */
+}
+
+    #journeyDate {
+    font-family: 'Arial', sans-serif; 
+    font-size: 16px; 
+    color: #6f6f6f; 
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+
+    /* Styling for the popup message */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      z-index: 10;
+    }
+
+    .popup h3 {
+      color: #28a745;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    .popup p {
+      color: #333;
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+
+    .popup button {
+      padding: 8px 16px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <span>
+          <img style="height:25px;width:30px;margin-right: 10px;"
+               src="https://cdn3.iconfinder.com/data/icons/human-civilization-vol-2/512/egypt_pharaoh_ancient_egyptian-1024.png" alt="">
+        </span>
+        <a href="/DiscoverEgypt/home.html" style="text-decoration: none;color:whitesmoke;font-size: 30px"><i>Discover Egypt</i></a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="home.html" class="active">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+<!-- Booking Form -->
+<div class="booking-form" id="bookingForm">
+  <h2>Book Your Journey</h2>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="guests">Number of Guests</label>
+    <input type="number" id="guests" name="guests" min="1" placeholder="Enter number of guests" required>
+  </div>
+  <div class="form-group">
+    <label for="days">Number of Days</label>
+    <input type="number" id="days" name="days" min="1" placeholder="Enter number of days" required>
+  </div>
+  <div class="form-group">
+    <label for="journeyDate">Date of the Journey</label>
+    <input type="date" id="journeyDate" name="journeyDate" required>
+  </div>
+  <style>
+    #journeyDate::placeholder {
+        text-transform: uppercase;
+    }
+</style>
+  <button class="submit-btn" onclick="submitBooking()">Book Now</button>
+
+<!-- Popup Confirmation Message -->
+<div class="popup" id="confirmationPopup">
+  <h3>Booking Confirmed!</h3>
+  <p>Confirmation email has been sent</p>
+  <p>Packup and get ready for your journey!</p>
+
+  <button onclick="closePopup()">Close</button>
+</div>
+
+<script>
+  // JavaScript function to handle form submission
+  function submitBooking() {
+    // Get form values
+    const guests = document.getElementById("guests").value;
+    const days = document.getElementById("days").value;
+    const journeyDate = document.getElementById("journeyDate").value;
+
+    // Simple validation to check if fields are filled
+    if (!guests || !days || !journeyDate) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    // Show confirmation popup
+    document.getElementById("confirmationPopup").style.display = "block";
+  }
+
+  // JavaScript function to close the popup
+  function closePopup() {
+    document.getElementById("confirmationPopup").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
